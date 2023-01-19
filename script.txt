@@ -1,0 +1,83 @@
+switch
+------------------
+en
+conf t
+hostname x
+enable secret x - jelszó
+line con 0
+password xxx
+login
+exit
+(-konzol hozzáférés parancsa, ahol "x" a jelszó)
+service password-encryption
+banner motd #xxxx# - üzenet
+
+ruter
+
+int g0/0
+ip address 192.168.0.1 255.255.255.0
+no sh
+exit
+
+
+copy ru st
+
+menete: 
+	összeollózom a scriptet.
+	átírom a változókat.
+	bemásolom az eszközbe és figyelem a hibaüzenetet.
+alap konf
+
+en
+conf t
+hostname s1
+enable secret x
+line con 0
+password x
+login
+exit
+banner motd #x#
+int vlan 1
+ip add 192.168.24.1 255.255.255.0
+no sh
+exit
+exit
+copy ru st
+
+
+
+ip default-getaway x
+int vlan 1
+
+line vty 0 15 - bárhonnan hozzá tudok férni a hálózathoz
+password x
+login - kikényszeríti a jelszó használatát
+exit
+
+int vlan 1 - belép a vlan konfigurációba
+ip add - IP neve
+ip default-getaway x - megadja az átjárót
+int vlan 1 - belép a vlan konfigurációba
+no shut - 
+exit
+
+-ip beállítások
+
+
+
+en
+conf t
+hostname
+line vty 0 15
+password x
+login
+exit
+int vlan 1
+ip add
+ip default-getaway
+int vlan 1
+no shut
+exit
+
+
+10.4.18.200

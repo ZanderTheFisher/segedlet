@@ -1,0 +1,61 @@
+Általános config:
+
+hostname:
+line con 0
+password cisco
+login
+exit
+line vty 0 15
+password cisco
+login
+exit
+enable secret class
+service password-encryption
+banner motd # # vagy " "
+
+Konfiguráció lekérdezése, mentése és törlése
+
+Konfiguráció lekérdezése:
+show running-config | startup-config
+
+
+Ruter setup
+
+int g0/0
+ip add (ip cím maskkal együtt)
+no sh
+exit
+security passwords min-length ...
+login block-for ... attempts .. within ...
+
+
+
+SSH Setup
+
+hostname 
+ip domain-name (valami.hu/.com)
+crypto key generate rsa
+ip ssh version 2
+username admin privilege 15 password cisco
+line vty 0 15
+login local
+transport input ssh
+privilege level 15
+
+
+Ipv6 setup
+
+ipv6 unicast-routing
+int fa 0/0
+ipv6 enable
+ipv6 address 
+no shutdown
+
+
+DHCP setup
+
+ip dhcp pool lan1
+network (ip+mask)
+default-router (ip)
+dns-server
+exit
