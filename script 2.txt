@@ -6,7 +6,7 @@ password cisco
 login
 exit
 line vty 0 15
-password cisco
+password 
 login
 exit
 enable secret class
@@ -21,7 +21,7 @@ show running-config | startup-config
 
 Ruter setup
 
-int g0/0
+int gX/Y
 ip add (ip cím maskkal együtt)
 no sh
 exit
@@ -36,7 +36,7 @@ hostname
 ip domain-name (valami.hu/.com)
 crypto key generate rsa
 ip ssh version 2
-username admin privilege 15 password cisco
+username ... privilege 15 password ...
 line vty 0 15
 login local
 transport input ssh
@@ -46,7 +46,7 @@ privilege level 15
 Ipv6 setup
 
 ipv6 unicast-routing
-int fa 0/0
+int fa X/Y
 ipv6 enable
 ipv6 address 
 no shutdown
