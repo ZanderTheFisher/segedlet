@@ -2,7 +2,7 @@
 
 hostname:
 line con 0
-password cisco
+password 
 login
 exit
 line vty 0 15
