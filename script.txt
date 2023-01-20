@@ -14,23 +14,20 @@ banner motd #xxxx# - üzenet
 
 ruter
 
-int g0/0
-ip address 192.168.0.1 255.255.255.0
+int gX/Y
+ip address (ip és maszk)
 no sh
 exit
 
 
 copy ru st
 
-menete: 
-	összeollózom a scriptet.
-	átírom a változókat.
-	bemásolom az eszközbe és figyelem a hibaüzenetet.
+
 alap konf
 
 en
 conf t
-hostname s1
+hostname
 enable secret x
 line con 0
 password x
@@ -38,7 +35,7 @@ login
 exit
 banner motd #x#
 int vlan 1
-ip add 192.168.24.1 255.255.255.0
+ip add (ip és maszk)
 no sh
 exit
 exit
@@ -78,6 +75,3 @@ ip default-getaway
 int vlan 1
 no shut
 exit
-
-
-10.4.18.200
